@@ -19,7 +19,13 @@ app.use(express.json())
 
 app.use(
     cors({
-        origin:"*",
+        origin: [
+            "https://notes-app-theta-six.vercel.app","https://notes-app-backend-kohl.vercel.app",
+            "http://localhost:5173" // Replace with your local development URL
+        ],
+        methods: ["GET", "POST", "PUT", "DELETE"], // specify allowed methods
+        allowedHeaders: ["Content-Type", "Authorization"], // specify allowed headers
+        credentials: true // if you want to allow credentials
     })
 )
 
